@@ -6,8 +6,9 @@ import { MessageService } from './message.service';
 export class MessageController {
   constructor(private readonly messageService: MessageService) {}
 
-  @Post()
+  @Post('send')
   send(@Body() messageDto: MessageDto) {
+    console.log('aaad');
     return this.messageService.send(messageDto);
   }
 }
