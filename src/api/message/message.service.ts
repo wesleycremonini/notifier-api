@@ -7,10 +7,11 @@ export class MessageService {
   constructor(private readonly httpService: HttpService) {}
 
   async send(messageDto: MessageDto) {
-    console.log(messageDto);
+    console.log(messageDto, "from api");
+    const body: Object = {"test": "test"};
     await this.httpService
-      .get('http://notifier-go-service:8080/message/send')
-      .subscribe((response) => console.log(response.data));
+      .post('http://notifier-go-service:8080/message/send', body)
+      .subscribe((response) => console.log(response.data, "from go"));
     return 'This action adds a new message';
   }
 }
