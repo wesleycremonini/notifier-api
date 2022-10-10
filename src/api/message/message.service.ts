@@ -8,7 +8,9 @@ export class MessageService {
 
   async send(messageDto: MessageDto) {
     console.log(messageDto);
-    await this.httpService.get('http://notifier-go-service:8080').subscribe(response => console.log(response.data));
+    await this.httpService
+      .get('http://notifier-go-service:8080')
+      .subscribe((response) => console.log(response.data));
     return 'This action adds a new message';
   }
 }
